@@ -1,4 +1,4 @@
-﻿using poker.Models;
+﻿using Poker.Models;
 
 class Startup
 {
@@ -7,13 +7,15 @@ class Startup
     // Welcome message
     Console.WriteLine("Welcome to 5-hand Poker!");
 
-    char club = '\u2660';
-    // Suits
-    //                spade     club      heart     diamond
-    char[] suits = { '\u2660', '\u2663', '\u2665', '\u2666' };
-
-    // Ranks
-    char[] ranks = { 'A', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K' };
+    Suit[] suits = { Suit.Spade, Suit.Club, Suit.Heart, Suit.Diamond };
+    Rank[] ranks = 
+            {
+                Rank.Ace  , Rank.Two  , Rank.Three,
+                Rank.Four , Rank.Five , Rank.Six,
+                Rank.Seven, Rank.Eight, Rank.Nine,
+                Rank.Ten  , Rank.Jack , Rank.Queen,
+                Rank.King
+            };
 
     Card[] deck = new Card[52];
     int index = 0;
@@ -29,7 +31,7 @@ class Startup
 
     foreach (Card c in deck)
     {
-      Console.WriteLine($"{c.Rank}{c.Suit}");
+      Console.WriteLine($"{c.GetRank()}{c.GetSuit()}");
     }
   }
 }
