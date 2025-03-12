@@ -55,5 +55,16 @@ namespace Poker.Models
                 cards[j] = temp;
             }
         }
+
+        public List<Card> DealHand(int handSize, int playerCount, int playerNumber)
+        {
+            List<Card> hand = new();
+            for(int i = playerNumber; i < handSize*playerCount; i+=playerCount)
+            {
+                hand.Add(cards[i]);
+            }
+
+            return hand;
+        }
     }
 }

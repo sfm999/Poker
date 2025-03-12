@@ -10,6 +10,24 @@ class Startup
         Deck deck = new Deck();
 
         deck.Shuffle();
-        deck.DisplayAllCards();
+
+
+        int playerCount = 5;
+        int handSize = 5;
+
+        List<Hand> hands = new List<Hand>();
+
+        for(int i = 0; i < playerCount; i++)
+        {
+            List<Card> cards = deck.DealHand(handSize: handSize, playerCount: playerCount, playerNumber: i);
+            Hand hand = new Hand();
+            foreach (Card card in cards)
+                hand.AddCard(card);
+            hands.Add(hand);
+        }
+
+        foreach (Hand hand in hands)
+            hand.DisplayCards();
+
   }
 }
