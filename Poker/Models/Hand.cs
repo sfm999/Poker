@@ -18,5 +18,7 @@ namespace Poker.Models
         public void AddCard(Card card) => Cards.Add(card);
 
         public void DisplayCards() => Console.WriteLine(string.Join(" ", Cards));
+
+        public void ClearHand() => Cards.Clear();
     }
 }
