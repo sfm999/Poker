@@ -8,7 +8,7 @@
         Diamond = '\u2666'  // ♦
     }
 
-    public static class SuitExtensions
+    static class SuitExtensions
     {
         public static char GetSuitIcon(this Suit suit)
         {

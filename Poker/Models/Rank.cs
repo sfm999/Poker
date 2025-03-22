@@ -17,7 +17,7 @@
         King = 13
     }
 
-    public static class RankExtensions
+    static class RankExtensions
     {
         public static string GetRankName(this Rank rank)
         {

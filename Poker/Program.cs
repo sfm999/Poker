@@ -11,23 +11,23 @@ class Startup
 
         deck.Shuffle();
 
-
         int playerCount = 5;
         int handSize = 5;
 
-        List<Hand> hands = new List<Hand>();
-
+        List<Player> players = new();
+        string[] names = { "Bob", "Jane", "Larry", "Kate", "Moe" };
         for(int i = 0; i < playerCount; i++)
         {
-            List<Card> cards = deck.DealHand(handSize: handSize, playerCount: playerCount, playerNumber: i);
-            Hand hand = new Hand();
-            foreach (Card card in cards)
-                hand.AddCard(card);
-            hands.Add(hand);
+            players.Add(new Player(names[i]));
+            players[i].SetHand(new Hand(
+                deck.DealHand(handSize: handSize, playerCount: playerCount, playerNumber: i))
+            );
         }
 
-        foreach (Hand hand in hands)
-            hand.DisplayCards();
-
-  }
+        foreach (Player player in players)
+        {
+            Console.Write($"{player.Name}: ");
+            player.DisplayHand();
+        }
+    }
 }

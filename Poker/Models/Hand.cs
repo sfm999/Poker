@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace Poker.Models
 {
-    public class Hand
+    class Hand
     {
         public List<Card> Cards { get; private set; }
 
-        public Hand()
+        public Hand(List<Card> cards)
         {
-            Cards = new List<Card>();
+            Cards = cards;
         }
 
-        public void AddCard(Card card) => Cards.Add(card);
-
-        public void DisplayCards() => Console.WriteLine(string.Join(" ", Cards));
+        public void DisplayHand() => Console.WriteLine(string.Join(" ", Cards));
 
         public void ClearHand() => Cards.Clear();
     }

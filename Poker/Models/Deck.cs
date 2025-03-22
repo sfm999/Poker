@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Poker.Models
 {
-    public class Deck
+    class Deck
     {
         Card[] cards;
 
@@ -56,6 +56,17 @@ namespace Poker.Models
             }
         }
 
+        /// <summary>
+        /// <para>Used in a for-loop where iterations equals playerCount.</para>
+        /// 
+        /// <para>`playerNumber` is equal to each iteration value, and the 
+        /// cards are dealt by index where the index starts at the playerNumber
+        /// and increases by playerCount on each iteration.</para>
+        /// </summary>
+        /// <param name="handSize"></param>
+        /// <param name="playerCount"></param>
+        /// <param name="playerNumber"></param>
+        /// <returns></returns>
         public List<Card> DealHand(int handSize, int playerCount, int playerNumber)
         {
             List<Card> hand = new();
